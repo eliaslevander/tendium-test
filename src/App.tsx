@@ -1,24 +1,9 @@
 import { useState } from "react";
 import "./App.css";
-import Button from "./components/Button/Button";
-import DeleteIcon from "./components/Button/Icons/DeleteIcon";
-import CheckIcon from "./components/Button/Icons/SubmitIcon";
 
 function App() {
   const [disabled, setDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-  };
-
-  const handleClick = () => {
-    alert("Hejsan");
-  };
-
-  const handleDelete = () => {
-    alert("Delete");
-  };
 
   const toggleDisabled = () => {
     setDisabled(!disabled);
@@ -30,66 +15,46 @@ function App() {
 
   return (
     <>
-      <form action="">
-        <Button
-          icon={<CheckIcon />}
-          type="submit"
-          ariaLabel="Test button"
-          onClick={handleSubmit}
-          variant="success"
-          size="large"
-          disabled={disabled}
-          loading={loading}
-          fullWidth
-          // outlined
-        >
-          submit
-        </Button>
-      </form>
-      <Button
-        disabled={disabled}
-        loading={loading}
-        icon={<DeleteIcon />}
-        type="button"
-        size="large"
-        variant="danger"
-        ariaLabel="Delete button"
-        onClick={handleDelete}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "50vw",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "20px",
+        }}
+      ></div>
+
+      <div
+        style={{
+          position: "absolute",
+          top: "20px",
+          right: "10px",
+          display: "flex",
+          gap: "20px",
+        }}
       >
-        Delete
-      </Button>
-      <Button
-        disabled={disabled}
-        loading={loading}
-        icon={<DeleteIcon />}
-        type="button"
-        size="large"
-        variant="primary"
-        ariaLabel="Button"
-        onClick={handleDelete}
-      >
-        Button
-      </Button>
-      <div>
-        {" "}
-        <Button
-          type="button"
-          variant="success"
-          size="small"
-          ariaLabel="Toggle disabled"
+        <div
           onClick={toggleDisabled}
-        >
-          Toggle disabled
-        </Button>
-        <Button
-          type="button"
-          variant="danger"
-          size="small"
-          ariaLabel="Toggle loading"
+          style={{
+            backgroundColor: "#000",
+            width: "48px",
+            height: "48px",
+            borderRadius: "50%",
+            cursor: "pointer",
+          }}
+        ></div>
+        <div
           onClick={toggleLoading}
-        >
-          Toggle loading
-        </Button>
+          style={{
+            backgroundColor: "#aaa",
+            width: "48px",
+            height: "48px",
+            borderRadius: "50%",
+            cursor: "pointer",
+          }}
+        ></div>
       </div>
     </>
   );

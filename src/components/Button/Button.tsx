@@ -19,14 +19,14 @@ type ButtonProps = {
 const Button: React.FC<ButtonProps> = ({
   type,
   variant = "primary",
-  size = "small",
+  size = "medium",
   children,
   onClick,
   ariaLabel,
   disabled,
   loading,
   fullWidth,
-  outlined = false,
+  outlined,
   icon,
 }) => {
   return (
