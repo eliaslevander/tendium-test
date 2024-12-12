@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Button from "./components/Button/Button";
 
 function App() {
   const [disabled, setDisabled] = useState(false);
@@ -13,48 +14,46 @@ function App() {
     setLoading(!loading);
   };
 
+  const handleClick = () => {
+    alert("Click!");
+  };
+
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "50vw",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "20px",
-        }}
-      ></div>
+      <div className="button__container">
+        <Button
+          outlined
+          size="large"
+          loading={loading}
+          disabled={disabled}
+          type="button"
+          onClick={handleClick}
+          ariaLabel="Test button"
+          variant="success"
+        >
+          button
+        </Button>
+      </div>
 
-      <div
-        style={{
-          position: "absolute",
-          top: "20px",
-          right: "10px",
-          display: "flex",
-          gap: "20px",
-        }}
-      >
-        <div
+      <div className="controls__container">
+        <Button
+          type="button"
+          size="small"
           onClick={toggleDisabled}
-          style={{
-            backgroundColor: "#000",
-            width: "48px",
-            height: "48px",
-            borderRadius: "50%",
-            cursor: "pointer",
-          }}
-        ></div>
-        <div
+          variant="primary"
+          ariaLabel="Toggle disabled"
+        >
+          Toggle disabled
+        </Button>
+        <Button
+          type="button"
+          size="small"
           onClick={toggleLoading}
-          style={{
-            backgroundColor: "#aaa",
-            width: "48px",
-            height: "48px",
-            borderRadius: "50%",
-            cursor: "pointer",
-          }}
-        ></div>
+          variant="danger"
+          ariaLabel="Toggle disabled"
+        >
+          Toggle loading
+        </Button>
       </div>
     </>
   );
