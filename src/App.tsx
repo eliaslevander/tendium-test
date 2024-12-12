@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Button from "./components/Button/Button";
+import CheckIcon from "./components/Icons/SubmitIcon";
 
 function App() {
   const [disabled, setDisabled] = useState(false);
@@ -30,6 +31,7 @@ function App() {
           onClick={handleClick}
           ariaLabel="Test button"
           variant="success"
+          icon={<CheckIcon />}
         >
           button
         </Button>
