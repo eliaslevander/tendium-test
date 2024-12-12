@@ -52,7 +52,7 @@ function App() {
           size="small"
           onClick={toggleLoading}
           variant="danger"
-          ariaLabel="Toggle disabled"
+          ariaLabel="Toggle loading"
         >
           Toggle loading
         </Button>
